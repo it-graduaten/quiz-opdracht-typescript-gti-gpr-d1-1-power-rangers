@@ -74,6 +74,14 @@ class QuizApp {
     });
   }
 
+  removePlayerList() {
+    this.players = []
+    this.updatePlayerList();
+  }
+  removeQuestionList() {
+    this.questions = []
+  }
+
   private endQuiz() {
     this.hideQuiz();
     this.showScoreBoard();

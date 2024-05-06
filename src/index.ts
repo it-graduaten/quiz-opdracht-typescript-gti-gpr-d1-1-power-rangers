@@ -64,6 +64,25 @@ window.addEventListener('load', () => {
         updateVisibleItem(divPlayersContainer);
     });
 
+    document.getElementById("btnRestart")?.addEventListener('click', () => {
+        updateVisibleItem(divWelcome);
+        quizApp.removePlayerList();
+
+        const noQuestions = document.getElementById("no-questions") as HTMLElement;
+        const list = document.getElementById("question-list") as HTMLElement;
+
+        list.innerHTML = '';
+
+        quizApp.questions.forEach(q => {
+            const li = document.createElement("li");
+            li.textContent = q.toString();
+            list.removeChild(li);
+        });
+        noQuestions.classList.add('d-none');
+        quizApp.removeQuestionList();
+
+    });
+
     // implement logic to set the game mode
     // implement logic to set the number of players
 
